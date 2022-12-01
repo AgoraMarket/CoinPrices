@@ -1,5 +1,5 @@
 from flask import jsonify
-from scripts import\
+from app.scripts import\
     bch_price,\
     btc_price,\
     xmr_price

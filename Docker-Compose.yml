@@ -8,13 +8,14 @@ networks:
   freeport:
     external: true
 
-  api:
+services:
+  coinprices:
     container_name: freeport-coinprices
     image: freeport/freeport-coinprices
     restart: on-failure
     build:
         context: ./
-        dockerfile: Dockerfile
+        dockerfile: ./Dockerfile
     volumes:
         - ./:/app
     ports:
