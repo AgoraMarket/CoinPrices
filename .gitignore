@@ -70,7 +70,7 @@ coverage.xml
 *.log
 
 # Flask stuff:
-instance/
+
 .webassets-cache
 
 # Scrapy stuff:
@@ -107,7 +107,8 @@ ENV/
 
 # Rope project settings
 .ropeproject
-
+instance/config.py
+instance/cron.txt
 /passwords.py
 /config.py
 __pycache__/
