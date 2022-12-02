@@ -1,7 +1,7 @@
 # coding=utf-8
 from app import app
 
-PORT = 5050
+PORT = 5054
 HOST = '0.0.0.0'
 
 if __name__ == '__main__':
