@@ -3,10 +3,11 @@ from app.scripts import\
     bch_price,\
     btc_price,\
     xmr_price
+
 from app import app
 
 
-@app.route('/status', methods=['GET'])
+@app.route('/', methods=['GET'])
 def get_daemon_status():
     """
     Gets the count of vendor order issues.  Notification bar at top
@@ -24,18 +25,19 @@ def get_xmr_price():
     Gets the price of xmr in 5 diff currencies
     :return:
     """
+    
     try:
         
-        xmr_price()
+        xmr_price.get_prices_coins_xmr()
         
         return jsonify({
             "status": 'Updated XMR Prices',
         })
         
-    except:
+    except Exception as e:
         
         return jsonify({
-            "status": 'Failed to update XMR Prices',
+            "status": str(e),
         })
 
 
@@ -47,7 +49,7 @@ def get_btc_price():
     """
     try:
         
-        btc_price()
+        btc_price.get_prices_coins_btc()
         
         return jsonify({
             "status": 'Updated BTC Prices',
@@ -68,7 +70,7 @@ def get_bch_price():
     """
     try:
         
-        bch_price()
+        bch_price.get_prices_coins_bch()
         
         return jsonify({
             "status": 'Updated BCH Prices',

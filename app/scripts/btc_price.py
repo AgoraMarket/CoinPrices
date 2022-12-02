@@ -6,6 +6,9 @@ from app.classes.wallet_btc import Btc_Prices
 
 
 def get_prices_coins_btc():
+    """
+    used pycoingecko modules for prices
+    """
     cg = CoinGeckoAPI()
     # USD
     btc_data_usd = Btc_Prices.query.filter_by(id=1).first()
@@ -38,5 +41,3 @@ def get_prices_coins_btc():
     btc_data_gbp.price = btc_price_gbp
     db.session.add(btc_data_gbp)
     
-if __name__ == '__main__':
-    get_prices_coins_btc()

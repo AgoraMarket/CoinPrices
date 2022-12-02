@@ -5,6 +5,9 @@ from app.classes.wallet_bch import Bch_Prices
 
 
 def get_prices_coins_bch():
+    """
+    used pycoingecko modules for prices
+    """
     cg = CoinGeckoAPI()
 
     # USD
@@ -41,7 +44,3 @@ def get_prices_coins_bch():
     
     db.session.commit()
 
-if __name__ == '__main__':
-    get_prices_coins_bch()
-
-    

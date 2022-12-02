@@ -4,6 +4,9 @@ from app import db
 from app.classes.wallet_xmr import Xmr_Prices
 
 def get_prices_coins_xmr():
+    """
+    used pycoingecko modules for prices
+    """
     cg = CoinGeckoAPI()
     # USD
     xmr_data_usd = Xmr_Prices.query.filter_by(id=1).first()
@@ -39,6 +42,3 @@ def get_prices_coins_xmr():
     xmr_price_gbp = (xmr_gbp['monero']['gbp'])
     xmr_data_gbp.price = xmr_price_gbp
     db.session.add(xmr_data_gbp)
-
-if __name__ == '__main__':
-    get_prices_coins_xmr()
