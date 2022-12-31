@@ -1,44 +1,181 @@
-from pycoingecko import CoinGeckoAPI
 
 from app import db
 from app.classes.wallet_xmr import Xmr_Prices
 
-def get_prices_coins_xmr():
+def get_prices_coins_xmr(jsonprices):
     """
     used pycoingecko modules for prices
     """
-    cg = CoinGeckoAPI()
+
     # USD
-    xmr_data_usd = Xmr_Prices.query.filter_by(id=1).first()
-    xmr_usd = cg.get_price(ids='monero', vs_currencies='usd')
-    xmr_price_usd = (xmr_usd['monero']['usd'])
+    xmr_price_usd = (jsonprices['bitcoin']['usd'])
+    xmr_data_usd = Xmr_Prices.query.filter_by(currency_id=0).first()
     xmr_data_usd.price = xmr_price_usd
     db.session.add(xmr_data_usd)
 
-    # EUR
-    xmr_data_eur = Xmr_Prices.query.filter_by(id=2).first()
-    xmr_eur = cg.get_price(ids='monero', vs_currencies='eur')
-    xmr_price_eur = (xmr_eur['monero']['eur'])
-    xmr_data_eur.price = xmr_price_eur
-    db.session.add(xmr_data_eur)
-    
-    # JPY
-    xmr_data_jpy = Xmr_Prices.query.filter_by(id=3).first()
-    xmr_jpy = cg.get_price(ids='monero', vs_currencies='jpy')
-    xmr_price_jpy = (xmr_jpy['monero']['jpy'])
-    xmr_data_jpy.price = xmr_price_jpy
-    db.session.add(xmr_data_jpy)
-    
+    # PHP
+    xmr_price_php = (jsonprices['bitcoin']['php'])
+    xmr_data_php = Xmr_Prices.query.filter_by(currency_id=1).first()
+    xmr_data_php.price = xmr_price_php
+    db.session.add(xmr_data_php)
+
+    #CHF
+    xmr_price_chf = (jsonprices['bitcoin']['chf'])
+    xmr_data_chf = Xmr_Prices.query.filter_by(currency_id=2).first()
+    xmr_data_chf.price = xmr_price_chf
+    db.session.add(xmr_data_chf)
+
     # CAD
-    xmr_data_cad = Xmr_Prices.query.filter_by(id=4).first()
-    xmr_cad = cg.get_price(ids='monero', vs_currencies='cad')
-    xmr_cash_price_cad = (xmr_cad['monero']['cad'])
-    xmr_data_cad.price = xmr_cash_price_cad
+    xmr_price_cad = (jsonprices['bitcoin']['cad'])
+    xmr_data_cad = Xmr_Prices.query.filter_by(currency_id=3).first()
+    xmr_data_cad.price = xmr_price_cad
     db.session.add(xmr_data_cad)
     
+    # SGD
+    xmr_price_sgd = (jsonprices['bitcoin']['sgd'])
+    xmr_data_sgd = Xmr_Prices.query.filter_by(currency_id=4).first()
+    xmr_data_sgd.price = xmr_price_sgd
+    db.session.add(xmr_data_sgd)
+    
+    # DKK
+    xmr_price_dkk = (jsonprices['bitcoin']['dkk'])
+    xmr_data_dkk = Xmr_Prices.query.filter_by(currency_id=5).first()
+    xmr_data_dkk.price = xmr_price_dkk
+    db.session.add(xmr_data_dkk)
+    
+    # NOK
+    xmr_price_nok = (jsonprices['bitcoin']['nok'])
+    xmr_data_nok = Xmr_Prices.query.filter_by(currency_id=6).first()
+    xmr_data_nok.price = xmr_price_nok
+    db.session.add(xmr_data_nok)
+
+    # ILS
+    xmr_price_ils = (jsonprices['bitcoin']['ils'])
+    xmr_data_ils = Xmr_Prices.query.filter_by(currency_id=7).first()
+    xmr_data_ils.price = xmr_price_ils
+    db.session.add(xmr_data_ils)
+
+
+    # SEK
+    xmr_price_sek = (jsonprices['bitcoin']['sek'])
+    xmr_data_sek = Xmr_Prices.query.filter_by(currency_id=8).first()
+    xmr_data_sek.price = xmr_price_sek
+    db.session.add(xmr_data_sek)
+
+    # THB
+    xmr_price_thb = (jsonprices['bitcoin']['thb'])
+    xmr_data_thb = Xmr_Prices.query.filter_by(currency_id=9).first()
+    xmr_data_thb.price = xmr_price_thb
+    db.session.add(xmr_data_thb)
+
+
+    # BRL
+    xmr_price_brl = (jsonprices['bitcoin']['brl'])
+    xmr_data_brl = Xmr_Prices.query.filter_by(currency_id=10).first()
+    xmr_data_brl.price = xmr_price_brl
+    db.session.add(xmr_data_brl)
+
+
+
+    # INR
+    xmr_price_inr = (jsonprices['bitcoin']['inr'])
+    xmr_data_inr = Xmr_Prices.query.filter_by(currency_id=11).first()
+    xmr_data_inr.price = xmr_price_inr
+    db.session.add(xmr_data_inr)
+
+    # ZAR
+    xmr_price_zar = (jsonprices['bitcoin']['zar'])
+    xmr_data_zar = Xmr_Prices.query.filter_by(currency_id=12).first()
+    xmr_data_zar.price = xmr_price_zar
+    db.session.add(xmr_data_zar)
+
+    # HKD
+    xmr_price_hkd = (jsonprices['bitcoin']['hkd'])
+    xmr_data_hkd = Xmr_Prices.query.filter_by(currency_id=13).first()
+    xmr_data_hkd.price = xmr_price_hkd
+    db.session.add(xmr_data_hkd)
+
+    # JPY
+    xmr_price_jpy = (jsonprices['bitcoin']['jpy'])
+    xmr_data_jpy = Xmr_Prices.query.filter_by(currency_id=14).first()
+    xmr_data_jpy.price = xmr_price_jpy
+    db.session.add(xmr_data_jpy)
+
+    # HUF
+    xmr_price_huf = (jsonprices['bitcoin']['huf'])
+    xmr_data_huf = Xmr_Prices.query.filter_by(currency_id=15).first()
+    xmr_data_huf.price = xmr_price_huf
+    db.session.add(xmr_data_huf)
+
+    # MXN
+    xmr_price_mxn = (jsonprices['bitcoin']['mxn'])
+    xmr_data_mxn = Xmr_Prices.query.filter_by(currency_id=16).first()
+    xmr_data_mxn.price = xmr_price_mxn
+    db.session.add(xmr_data_mxn)
+
+    # CNY
+    xmr_price_cny = (jsonprices['bitcoin']['cny'])
+    xmr_data_cny = Xmr_Prices.query.filter_by(currency_id=17).first()
+    xmr_data_cny.price = xmr_price_cny
+    db.session.add(xmr_data_mxn)
+
+    # AUD
+    xmr_price_aud = (jsonprices['bitcoin']['aud'])
+    xmr_data_aud = Xmr_Prices.query.filter_by(currency_id=18).first()
+    xmr_data_aud.price = xmr_price_aud
+    db.session.add(xmr_data_aud)
+
+    # PLN
+    xmr_price_pln = (jsonprices['bitcoin']['pln'])
+    xmr_data_pln = Xmr_Prices.query.filter_by(currency_id=19).first()
+    xmr_data_pln.price = xmr_price_pln
+    db.session.add(xmr_data_pln)
+
     # GBP
-    xmr_data_gbp = Xmr_Prices.query.filter_by(id=5).first()
-    xmr_gbp = cg.get_price(ids='monero', vs_currencies='gbp')
-    xmr_price_gbp = (xmr_gbp['monero']['gbp'])
+    xmr_price_gbp = (jsonprices['bitcoin']['gbp'])
+    xmr_data_gbp = Xmr_Prices.query.filter_by(currency_id=20).first()
     xmr_data_gbp.price = xmr_price_gbp
     db.session.add(xmr_data_gbp)
+
+    # TRY
+    xmr_price_try = (jsonprices['bitcoin']['try'])
+    xmr_data_try = Xmr_Prices.query.filter_by(currency_id=21).first()
+    xmr_data_try.price = xmr_price_try
+    db.session.add(xmr_data_try)
+
+    # KRW
+    xmr_price_krw = (jsonprices['bitcoin']['krw'])
+    xmr_data_krw = Xmr_Prices.query.filter_by(currency_id=22).first()
+    xmr_data_krw.price = xmr_price_krw
+    db.session.add(xmr_data_krw)
+
+    # IDR
+    xmr_price_idr = (jsonprices['bitcoin']['idr'])
+    xmr_data_idr = Xmr_Prices.query.filter_by(currency_id=23).first()
+    xmr_data_idr.price = xmr_price_idr
+    db.session.add(xmr_data_idr)
+
+    # NZD
+    xmr_price_nzd = (jsonprices['bitcoin']['nzd'])
+    xmr_data_nzd = Xmr_Prices.query.filter_by(currency_id=24).first()
+    xmr_data_nzd.price = xmr_price_nzd
+    db.session.add(xmr_data_nzd)
+
+    # MYR
+    xmr_price_myr = (jsonprices['bitcoin']['myr'])
+    xmr_data_myr = Xmr_Prices.query.filter_by(currency_id=25).first()
+    xmr_data_myr.price = xmr_price_myr
+    db.session.add(xmr_data_myr)
+
+    # EUR
+    xmr_price_eur = (jsonprices['bitcoin']['eur'])
+    xmr_data_eur = Xmr_Prices.query.filter_by(currency_id=26).first()
+    xmr_data_eur.price = xmr_price_eur
+    db.session.add(xmr_data_eur)
+
+    # CZK
+    xmr_price_czk = (jsonprices['bitcoin']['czk'])
+    xmr_data_czk = Xmr_Prices.query.filter_by(currency_id=27).first()
+    xmr_data_czk.price = xmr_price_czk
+    db.session.add(xmr_data_czk)
+    

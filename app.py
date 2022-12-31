@@ -1,4 +1,4 @@
-# coding=utf-8
+
 from app import app
 
 PORT = 5054
