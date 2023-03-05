@@ -70,7 +70,7 @@ class Auth_AccountSeedWords_Schema(ma.SQLAlchemyAutoSchema):
 class Auth_User(UserMixin, db.Model):
     __tablename__ = 'auth_users'
     __bind_key__ = 'clearnet'
-    __table_args__ = {"schema": "public, 'extend_existing': True"}
+    __table_args__ = {"schema": "public"}
 
     id = db.Column(db.Integer,
                    autoincrement=True,
@@ -85,6 +85,7 @@ class Auth_User(UserMixin, db.Model):
     email = db.Column(db.VARCHAR(350))
     wallet_pin = db.Column(db.VARCHAR(5))
     profileimage = db.Column(db.VARCHAR(100))
+    profileimage_url_250 = db.Column(db.VARCHAR(3000))
     bio = db.Column(db.TEXT)
     country = db.Column(db.INTEGER)
     currency = db.Column(db.INTEGER)
@@ -111,6 +112,7 @@ class Auth_User(UserMixin, db.Model):
                  wallet_pin,
                  profileimage,
                  display_name,
+                 profileimage_url_250,
                  bio,
                  api_key,
                  country,
@@ -138,6 +140,7 @@ class Auth_User(UserMixin, db.Model):
         self.wallet_pin = wallet_pin
         self.profileimage = profileimage
         self.display_name = display_name
+        self.profileimage_url_250 = profileimage_url_250
         self.bio = bio
         self.api_key = api_key
         self.country = country
@@ -183,7 +186,8 @@ class Auth_User_Schema(ma.SQLAlchemyAutoSchema):
                   "country",
                   "currency",
                   "vacation",
-                  "profileimage"
+                  "profileimage",
+                  "profileimage_url_250"
                   )
 
 

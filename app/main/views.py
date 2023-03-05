@@ -6,9 +6,7 @@ from app.scripts import\
 
 from app import app, db
 from pycoingecko import CoinGeckoAPI
-from app.classes.wallet_btc import Btc_Prices
-from app.classes.wallet_bch import Bch_Prices
-from app.classes.wallet_xmr import Xmr_Prices
+
 
 
 @app.route('/', methods=['GET'])
