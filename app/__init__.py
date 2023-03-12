@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, json
+from flask import Flask, json
 from flask_marshmallow import Marshmallow
 from flask_sqlalchemy import SQLAlchemy
 from flask_session import Session
@@ -45,50 +45,8 @@ db = SQLAlchemy(app)
 server_session = Session(app)
 ma = Marshmallow(app)
 login_manager = LoginManager(app)
-login_manager.session_protection = 'strong'
-login_manager.anonymous_user = "Guest"
 
 
-
-
-@app.errorhandler(500)
-def internal_error500():
-    return jsonify({"error": "Internal Error 500"}), 500
-
-
-@app.errorhandler(502)
-def internal_error502(error):
-    return jsonify({"error": "Internal Error 502"}), 502
-
-
-@app.errorhandler(404)
-def internal_error404(error):
-    return jsonify({"error": "Internal Error 400"}), 400
-
-
-@app.errorhandler(401)
-def internal_error404(error):
-    return jsonify({"error": "Internal Error 401"}), 401
-
-
-@app.errorhandler(400)
-def internal_error400(error):
-    return jsonify({"error": "Internal Error 400"}), 400
-
-
-@app.errorhandler(413)
-def to_large_file(error):
-    return jsonify({"error": "File is too large.  Use a smaller image/file."}), 413
-
-
-@app.errorhandler(403)
-def internal_error403(error):
-    return jsonify({"error": "Internal Error 403"}), 403
-
-
-@app.errorhandler(405)
-def internal_error(error):
-    return jsonify({"error": "Internal Error 405"}), 405
 
 # link locations
 from .main import main as main_blueprint
