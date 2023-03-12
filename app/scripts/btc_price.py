@@ -15,7 +15,7 @@ def get_prices_coins_btc(jsonprices):
     btc_data_usd = Btc_Prices.query.filter_by(currency_id=0).first()
     btc_data_usd.price = btc_price_usd
     db.session.add(btc_data_usd)
-
+    print(btc_data_usd.price)
     # PHP
     btc_price_php = (jsonprices['bitcoin']['php'])
     btc_data_php = Btc_Prices.query.filter_by(currency_id=1).first()
@@ -177,4 +177,3 @@ def get_prices_coins_btc(jsonprices):
     btc_data_czk = Btc_Prices.query.filter_by(currency_id=27).first()
     btc_data_czk.price = btc_price_czk
     db.session.add(btc_data_czk)
-    

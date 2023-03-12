@@ -6,9 +6,6 @@ from app.scripts import\
 
 from app import app, db
 from pycoingecko import CoinGeckoAPI
-from app.classes.wallet_btc import Btc_Prices
-from app.classes.wallet_bch import Bch_Prices
-from app.classes.wallet_xmr import Xmr_Prices
 
 
 @app.route('/', methods=['GET'])
@@ -39,7 +36,7 @@ def priceofit():
     bch_price.get_prices_coins_bch(jsonprices=get_price_json)
     btc_price.get_prices_coins_btc(jsonprices=get_price_json)
     xmr_price.get_prices_coins_xmr(jsonprices=get_price_json)
-    
+
     db.session.commit()
     return jsonify("success")
 

@@ -175,4 +175,3 @@ def get_prices_coins_bch(jsonprices):
     bch_data_czk = Bch_Prices.query.filter_by(currency_id=27).first()
     bch_data_czk.price = bch_price_czk
     db.session.add(bch_data_czk)
-    

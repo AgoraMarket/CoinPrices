@@ -175,4 +175,3 @@ def get_prices_coins_xmr(jsonprices):
     xmr_data_czk = Xmr_Prices.query.filter_by(currency_id=27).first()
     xmr_data_czk.price = xmr_price_czk
     db.session.add(xmr_data_czk)
-    

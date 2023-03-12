@@ -110,6 +110,6 @@ ENV/
 instance/config.py
 instance/cron.txt
 /passwords.py
-/config.py
-__pycache__/
+
 app/__pycache__/
+/settings_production.py
