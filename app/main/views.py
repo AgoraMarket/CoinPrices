@@ -15,9 +15,7 @@ def get_daemon_status():
     :return:
     """
 
-    return jsonify({
-        "status": 'Ready to get coin prices',
-    })
+    return jsonify({ "success": 'Ready to get coin prices' })
 
 @app.route('/price', methods=['GET'])
 def priceofit():

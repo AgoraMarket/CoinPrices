@@ -1,8 +1,6 @@
-from pycoingecko import CoinGeckoAPI
 
 from app import db
 from app.classes.wallet_btc import Btc_Prices
-
 
 
 def get_prices_coins_btc(jsonprices):

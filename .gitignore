@@ -113,3 +113,4 @@ instance/cron.txt
 
 app/__pycache__/
 /settings_production.py
+settings_production.py
