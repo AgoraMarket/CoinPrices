@@ -7,13 +7,27 @@ def get_prices_coins_btc(jsonprices):
     """
     used pycoingecko modules for prices
     """
-
+    print("bitcoin")
+    print((jsonprices['bitcoin']['usd_24h_change']))
+    print("")
+    if (jsonprices['bitcoin']['usd_24h_change']) > 0:
+        positive_coin = 1
+    elif (jsonprices['bitcoin']['usd_24h_change']) == 0:
+        positive_coin = 1
+    else:
+        positive_coin = 0
+        
+    get_all = Btc_Prices.query.all()
+    for f in get_all:
+        f.percent_change_twentyfour = positive_coin
+        db.session.add(f)
+    
     # USD
     btc_price_usd = (jsonprices['bitcoin']['usd'])
     btc_data_usd = Btc_Prices.query.filter_by(currency_id=0).first()
     btc_data_usd.price = btc_price_usd
     db.session.add(btc_data_usd)
-    print(btc_data_usd.price)
+
     # PHP
     btc_price_php = (jsonprices['bitcoin']['php'])
     btc_data_php = Btc_Prices.query.filter_by(currency_id=1).first()

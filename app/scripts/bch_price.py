@@ -7,7 +7,21 @@ def get_prices_coins_bch(jsonprices):
     """
     used pycoingecko modules for prices
     """
-    print(jsonprices)
+    print("bitcoin cash")
+    print((jsonprices['bitcoin-cash']['usd_24h_change']))
+    if (jsonprices['bitcoin-cash']['usd_24h_change']) > 0:
+        positive_coin = 1
+    elif (jsonprices['bitcoin-cash']['usd_24h_change']) == 0:
+        positive_coin = 1
+    else:
+        positive_coin = 0
+    print("")
+
+    get_all = Bch_Prices.query.all()
+    for f in get_all:
+        f.percent_change_twentyfour = positive_coin
+        db.session.add(f)
+
     # USD
     bch_price_usd = (jsonprices['bitcoin-cash']['usd'])
     bch_data_usd = Bch_Prices.query.filter_by(currency_id=0).first()

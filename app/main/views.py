@@ -26,7 +26,7 @@ def priceofit():
     
     cg = CoinGeckoAPI()
 
-    get_price_json = cg.get_price(ids='bitcoin, bitcoin-cash, monero', vs_currencies='usd,\
+    get_price_json = cg.get_price(ids='bitcoin, bitcoin-cash, monero', include_24hr_change=True, vs_currencies='usd,\
                                   php, chf, cad, thb, dkk,sek,sgd,nok,brl,ils,inr,zar,\
                                   hkd,jpy,huf,mxn,cny,aud,pln,gbp,try,krw,idr,nzd,myr,eur,czk')
     
